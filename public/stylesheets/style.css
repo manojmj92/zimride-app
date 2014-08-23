@@ -1,0 +1,89 @@
+.mycontainer
+{
+	background-color: #0d77b6;
+	background-image: url("../images/bg.png");
+	height: 257px;
+	width: 100%;
+	padding-top: 70px;
+}
+
+.white{
+	color:white
+}
+
+.container_no_boostrap
+{
+	padding-top: 70px;
+}
+.simm{
+	text-align: center;
+}
+.simm a,.simm p{
+	display: inline-block;
+	text-align: center;
+}
+.simm p{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.centre{
+	margin-left: 350px;
+	margin-top: 100px;
+}
+
+.centre_rides{
+	margin-left: 180px;
+	margin-top: 50px;
+}
+
+.search{
+	max-height: 90%;
+	margin-left: -180px;
+	padding: 10px;
+}
+
+.error{
+	margin-top: -5px;
+	margin-left: : 330px ;
+	
+	display: block;
+}
+.msg-centre{
+	margin-left: 220px;
+}
+.hero{
+	margin-top: 80px;
+}
+
+.align{
+	text-align: center;
+}
+
+.alert{
+	width: 70%;
+	
+	margin:0 auto;
+	margin-bottom: 10px;
+	margin-left: 177px;
+
+}
+
+.bottom_pad{
+	height: 239px;	
+}
+
+.myscroll{
+	height: 177px;
+	overflow:scroll;
+}
+.centre_me{
+	margin:0 auto;
+}
+
+.bottom{
+	margin-top: 20px;
+}
+.close{
+	margin-top: -25px;
+}

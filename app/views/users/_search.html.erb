@@ -1,0 +1,13 @@
+<% form_for @search, :url => {:controller => "rides", :action => "create"} do |f| %>
+<%= <%= form_for(@things) do |f| %>
+		
+<% end %>
+  .label :name %><br />
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :email %><br />
+<%= f.text_field :email %>
+</p>
+<%= f.submit "Register" %>
+<% end %>

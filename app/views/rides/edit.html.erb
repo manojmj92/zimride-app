@@ -1,0 +1,101 @@
+
+<script type="text/javascript">
+  seats = <%=@seats%>
+  function setseats(){
+   
+     var s = document.getElementById("seats");
+     var cars = document.getElementById("cars");
+     s.innerHTML = "";
+     for (var i = 1; i <= seats[cars.selectedIndex]; i++) {
+
+     var opt = document.createElement("option")
+       
+       opt.value = i;
+       opt.innerHTML = i;
+       s.appendChild(opt);
+     
+     };
+  }
+  window.onload = function(){
+    setseats();
+  }
+</script>
+
+
+
+ <div class="row">
+    <div class="span12 centre">
+      <div class="msg-centre">
+      <h3>Edit Ride</h3>
+      </div>
+      <% form_for @ride, :url => {:controller => "rides", :action => "update"},:html => {:class=>'form-horizontal'} do |f| %>
+        <fieldset>
+          
+          <div class="control-group">
+            <!-- From -->
+              <%= f.label :from,"From", :class => 'control-label' %>
+            <div class="controls">
+                <%= f.text_field :from,:class=>'input-xlarge',:id => 'searchTextField' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <!-- TO-->
+             <%= f.label :to,"To", :class => 'control-label' %>
+            <div class="controls">
+             
+              <%= f.text_field :to,:class=>'input-xlarge', :id => 'searchTextField2' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <!-- Date-->
+             <%= f.label :date,"Date", :class => 'control-label' %>
+            <div class="controls">
+             
+              
+              <input type="date" name="ride[date]" id="mydate" class="datepicker">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <!-- Car-->
+             <%= f.label :car,"Car", :class => 'control-label' %>
+            <div class="controls">
+             
+              <%= f.select(:car_id, @cars.collect {|u| [u.typeofcar,u.id]},{},:id => "cars",:onChange => "setseats();")%>
+
+              
+            </div>
+          </div>
+
+          <div class="control-group">
+            <!-- Seats-->
+             <%= f.label :seats_available,"Seats Available", :class => 'control-label' %>
+            <div class="controls">
+             
+                <%= f.select(:seats_available,[],{},:id => "seats")%>
+
+            </div>
+          </div>
+
+          <div class="control-group">
+            <!-- Cost-->
+             <%= f.label :cost,"Cost/seat in $", :class => 'control-label' %>
+            <div class="controls">
+             
+               <%= f.text_field :cost,:class=>'input-mini',:id=>'cost'%>
+              
+            </div>
+          </div>
+
+
+      
+          <div class="control-group">
+            <!-- Button -->
+            <div class="controls">
+              <%= f.submit "Update" ,:class => "btn btn-success",:id => "ride_edit_button" %>
+            </div>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>

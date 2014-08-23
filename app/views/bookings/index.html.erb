@@ -1,0 +1,48 @@
+
+
+<% if @bookings.present? %>
+	<div class="row centre_rides">
+		<div class="span12">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>From</th>
+					<th>To</th>
+					<th>Travel Date</th>
+					<th>Cost</th>
+					<th>Car</th>
+					<th>Seats</th>
+					<th>Cost</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<% @bookings.each do |booking| %>
+		    	<tr>
+		    		<td><%=booking.ride.from %></td>
+		     		<td><%=booking.ride.to%></td>
+					<td><%=booking.ride.date%></td>
+					<td><%=booking.ride.cost%></td>
+					<td><%=booking.ride.car.typeofcar%></td>
+					<td><%= booking.noofseats%></td>
+					<td><%= booking.totalcost%></td>
+					<% if  booking.ride.status %>
+						<td>Scheduled</td>
+					<% else %>
+						<td>Cancelled</td>
+					<% end %>
+		     	</tr>
+				<% end %>
+			
+			</tbody>
+		</table>
+	</div>
+</div>
+	<% else %>
+			<div class="span7 offset5">
+			<%= render "shared/errors"%>
+			<h1>You have no bookings</h1>
+			</div>
+	<% end %>
+

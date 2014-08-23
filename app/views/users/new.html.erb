@@ -1,0 +1,25 @@
+<div class="span3 offset6">
+<% form_for @user do |form| %>
+
+<%= form.label :name %>
+<%= form.text_field :name, :class => "span3" %>
+</p>
+<p>
+<%= form.label :email %><br />
+<%= form.text_field :email,:class => "span3" %>
+</p>
+<p>
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %>
+<%= form.password_field :password, :class => 'span3' %>
+</p>
+<p>
+<%= form.label :password_confirmation %>
+<%= form.password_field :password_confirmation,:class=> 'span3' %>
+</p>
+<p>
+<%=	form.label :description %>
+<%= form.text_field :description, :class=> 'span3' %>	
+</p>
+<%= form.submit "Register" , :class => 'btn btn-success'%>
+<% end %>
+</div>

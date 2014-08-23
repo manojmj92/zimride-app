@@ -1,0 +1,14 @@
+<div class="span3 offset6">
+	<h1>Edit Car</h1>
+<% form_for @car do |form| %>
+
+<%= form.label :Type %>
+<%= form.text_field :typeofcar, :class => "span3",:id=>"typeofcar" %>
+</p>
+<p>
+<%= form.label :seats %><br />
+<%= form.text_field :seats,:class => "span3",:id => "seats" %>
+</p>
+<%= form.submit "Update" , :class => 'btn btn-success', :id => 'car_edit_button'%>
+<% end %>
+</div>

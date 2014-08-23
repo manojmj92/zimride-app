@@ -1,0 +1,44 @@
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+
+    
+   <a class="brand" href="/">Zimride</a>
+    <ul class="nav pull-right">
+      
+      
+      <% if current_user.present? %>
+     <li class="dropdown">   
+      <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          Search
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu search">
+            <li class="form-horizontal"> 
+            
+              <% form_for :search,:url => {:controller => "rides", :action => "search"}, :html => { :method => "post"} do %>
+               <%= text_field_tag :from,nil, :id  => 'searchTextField3' %>
+                <%= text_field_tag :to, nil,:id => 'searchTextField4' %>
+                <input type='date' name='date', id='date' class="datepicker" />
+                 <%= submit_tag "Search", name: nil, :class => 'btn btn-success',:id => 'search_button' %>
+             <% end %>
+            
+             </li>
+          </ul> 
+        </div>
+      </li>
+        
+        <li ><%= link_to "Post", new_user_ride_path(:user_id =>current_user.id)%></li>
+     
+        <li ><%= link_to "Rides I posted", user_rides_path(:user_id=>current_user.id)%></li>
+        <li ><%= link_to "Bookings I made", user_bookings_path(current_user)%></li>
+        <li ><%= link_to "Profile", user_path(current_user)%></li>
+        <li> <%= link_to "Edit Account",  edit_user_path(current_user) %> </li>
+        <li ><%= link_to "Logout", logout_path%></li>
+      <%else%>
+        <li ><%= link_to "Sign Up", signup_path%></li>
+        <li ><%= link_to "Login", login_path%></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

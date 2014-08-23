@@ -1,0 +1,6 @@
+<% form_for :search, :html => { :method => "post"} do %>
+  <%= text_field_tag :from,nil, :id  => 'searchTextField' %>
+  <%= text_field_tag :to, nil,:id => 'searchTextField2' %>
+  <input type='date' name='date' />
+  <%= submit_tag "Search", name: nil %>
+<% end %>

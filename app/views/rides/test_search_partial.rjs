@@ -1,0 +1,1 @@
+page.replace_html "ride_search", :partial => "search_partial"

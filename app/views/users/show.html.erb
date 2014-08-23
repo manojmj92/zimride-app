@@ -1,0 +1,60 @@
+<div class="span6 offset2">
+<div class="hero-unit bottom_pad">
+<p> Name : <%= @user.name %></p>
+<p> Email : <%= @user.email %> </p>
+<h1>My Revenue</h1><br>
+<p>In Account: $<%= @totalcost[:account]%></p>
+<p>Upcoming: $<%= @totalcost[:upcoming]%></p>
+
+
+
+</div>
+
+</div>
+
+<div class="span6">
+<div class="hero-unit bottom_pad">
+	<% if @cars.present? %> 
+		<p>Total Number of Cars - <%= @cars.count %></p>
+<div class="myscroll">
+
+<table class="table table-striped ">
+			<thead>
+				<tr>
+					<th>Car Name</th>
+					<th>Seats</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				
+				<% @cars.each do |car| %>
+		    	<tr>
+		    		<td><%=car.typeofcar %></td>
+		     		<td><%=car.seats%></td>
+					<td><%= link_to "Edit",  edit_user_car_path(:id => car.id,:user_id => current_user.id), :method => "get", :class => 'btn btn-success' %></td>
+					<td><%= link_to "Delete",  user_car_path(:id => car.id,:user_id => current_user.id), :method => :delete,:confirm => "Are you sure?" ,:class => 'btn btn-danger' %></td>
+		     	</tr>
+				<% end %>
+			
+			</tbody>
+		
+</table>
+		</div>
+
+
+<% else %>
+<p>You have no cars</p>
+<% end %>
+  <%= link_to "Add Cars",  new_user_car_path(:user_id => current_user.id), :method => "get", :class => 'btn btn-warning bottom' %>
+
+  
+  </div>
+</div>
+
+
+
+
+
